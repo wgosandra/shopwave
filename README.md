@@ -1,2 +1,6 @@
-# shopwave
-Full-stack e-commerce platform with Next.js, PostgreSQL &amp; Midtrans payments. Includes cart, checkout, admin dashboard, and idempotent payment webhooks.
+# ShopWave 🛒
+
+> A full-stack e-commerce platform built with Next.js, PostgreSQL, and Midtrans.
+> Portfolio project focused on secure checkout, transactional integrity, and clean architecture.
+
+🚧 **Status:** In development
