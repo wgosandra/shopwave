@@ -1,0 +1,25 @@
+# Local development services. Nothing here is production configuration:
+# the credentials are deliberately weak and the port is published to
+# localhost only.
+
+services:
+  db:
+    image: postgres:18-alpine
+    container_name: shopwave-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: shopwave
+      POSTGRES_PASSWORD: shopwave
+      POSTGRES_DB: shopwave
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - shopwave-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U shopwave -d shopwave"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  shopwave-db-data:

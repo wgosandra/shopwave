@@ -1,0 +1,570 @@
+<title>ShopWave Brand Basics</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root {
+  --ground:  #FAF9F8;
+  --surface: #FFFFFF;
+  --line:    #E4E2DE;
+  --line-soft:#EFEDEA;
+  --ink:     #14151A;
+  --muted:   #6E6A64;
+  --accent:  #E4511B;
+  --chip:    #F2F1EF;
+  --rule:    #E4E2DE;
+  --guide:   #FF6B35;
+  --guide-ink:#E4511B;
+  --mark:    #14151A;
+  --dot:     #FF6B35;
+  --swatch-dark: #14151A;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground:  #0F1013;
+    --surface: #1A1B20;
+    --line:    #2B2C33;
+    --line-soft:#232429;
+    --ink:     #F2F1EF;
+    --muted:   #9B9791;
+    --accent:  #FF8A5C;
+    --chip:    #23242A;
+    --rule:    #2B2C33;
+    --guide:   #FF6B35;
+    --guide-ink:#FF8A5C;
+    --mark:    #F2F1EF;
+    --dot:     #FF6B35;
+  }
+}
+:root[data-theme="dark"] {
+  --ground:  #0F1013;
+  --surface: #1A1B20;
+  --line:    #2B2C33;
+  --line-soft:#232429;
+  --ink:     #F2F1EF;
+  --muted:   #9B9791;
+  --accent:  #FF8A5C;
+  --chip:    #23242A;
+  --rule:    #2B2C33;
+  --guide:   #FF6B35;
+  --guide-ink:#FF8A5C;
+  --mark:    #F2F1EF;
+  --dot:     #FF6B35;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-size: 15px; line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: 980px; margin: 0 auto; padding-inline: 20px; padding-block: 0 72px; }
+
+.masthead {
+  background: var(--swatch-dark);
+  margin-inline: -20px;
+  padding: 48px 20px 44px;
+  display: flex; flex-direction: column; gap: 22px; align-items: flex-start;
+}
+.masthead .tag {
+  font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: #FF8A5C;
+}
+.masthead p { color: #B8B4AE; max-width: 58ch; margin: 0; font-size: 15px; }
+.masthead svg { max-width: 100%; height: auto; }
+
+section { padding-top: 54px; }
+
+h2 {
+  font-family: "Familjen Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700; font-size: 26px; letter-spacing: -0.015em;
+  margin: 0 0 6px; text-wrap: balance;
+}
+.sub { color: var(--muted); margin: 0 0 24px; max-width: 62ch; }
+h3 {
+  font-family: "Familjen Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700; font-size: 15px; margin: 0 0 4px;
+}
+p { margin: 0 0 12px; }
+
+.rule { border: 0; border-top: 1px solid var(--line); margin: 0; }
+
+.grid { display: grid; gap: 18px; }
+.g2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.g3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 5px;
+  overflow: hidden; display: flex; flex-direction: column;
+}
+.card .stage {
+  padding: 30px 22px; display: flex; align-items: center; justify-content: center;
+  min-height: 132px;
+}
+.card .stage.on-ink { background: var(--swatch-dark); }
+.card .stage.on-paper { background: #FFFFFF; }
+.card .stage svg, .card .stage img { max-width: 100%; height: auto; display: block; }
+.card .cap {
+  border-top: 1px solid var(--line-soft); padding: 12px 16px 14px;
+  display: flex; flex-direction: column; gap: 3px;
+}
+.card .cap .file {
+  font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--muted);
+}
+.card .cap .use { font-size: 13px; color: var(--muted); }
+
+.wide { grid-column: 1 / -1; }
+
+/* colour */
+.swatches { display: grid; gap: 12px; grid-template-columns: repeat(3, minmax(0,1fr)); }
+.sw { border: 1px solid var(--line); border-radius: 5px; overflow: hidden; background: var(--surface); }
+.sw .fill { height: 76px; }
+.sw .meta { padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 2px; }
+.sw .name { font-size: 13px; font-weight: 600; }
+.sw .hex { font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--muted); }
+.sw .use { font-size: 12.5px; color: var(--muted); line-height: 1.45; margin-top: 2px; }
+.ramp { display: flex; border: 1px solid var(--line); border-radius: 5px; overflow: hidden; margin-top: 14px; }
+.ramp div { flex: 1; height: 54px; position: relative; }
+.ramp span {
+  position: absolute; bottom: 5px; left: 0; right: 0; text-align: center;
+  font-family: "IBM Plex Mono", monospace; font-size: 9px; color: #6E6A64;
+}
+.ramp div:nth-child(n+5) span { color: #F2F1EF; }
+
+/* icons at true size */
+.icons { display: flex; flex-wrap: wrap; gap: 26px; align-items: flex-end; }
+.icon { display: flex; flex-direction: column; align-items: center; gap: 9px; }
+.icon .plate {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 5px;
+  padding: 14px; display: flex; align-items: center; justify-content: center;
+}
+.icon img { display: block; image-rendering: auto; }
+.icon .lbl { font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--muted); text-align: center; }
+
+/* misuse */
+.donts { display: grid; gap: 14px; grid-template-columns: repeat(3, minmax(0,1fr)); }
+.dont { border: 1px solid var(--line); border-radius: 5px; background: var(--surface); overflow: hidden; }
+.dont .stage {
+  height: 104px; display: flex; align-items: center; justify-content: center;
+  overflow: hidden; padding: 0 14px;
+}
+.dont .stage svg { width: 170px; height: auto; }
+.dont .why {
+  border-top: 1px solid var(--line-soft); padding: 10px 13px 12px;
+  font-size: 12.5px; color: var(--muted); display: flex; gap: 7px; align-items: baseline;
+}
+.dont .why b { color: var(--accent); font-weight: 600; flex: none; }
+.d-stretch svg { transform: scaleX(1.5); }
+.d-rotate svg { transform: rotate(-9deg); }
+.d-shadow svg { filter: drop-shadow(0 4px 5px rgba(0,0,0,0.42)); }
+.d-lowcon { background: #FFE2D4; }
+.d-crowd .stage { justify-content: flex-start; padding-left: 4px; }
+.d-crowd .stage::after {
+  content: ""; width: 54px; height: 54px; border-radius: 4px;
+  background: repeating-linear-gradient(45deg, #C9C6C0 0 5px, #E4E2DE 5px 10px);
+  margin-left: 6px; flex: none;
+}
+
+/* specs list */
+.specs { display: grid; gap: 0; border: 1px solid var(--line); border-radius: 5px; background: var(--surface); }
+.spec-row {
+  display: flex; gap: 16px; padding: 13px 16px; border-bottom: 1px solid var(--line-soft);
+  flex-wrap: wrap;
+}
+.spec-row:last-child { border-bottom: 0; }
+.spec-row .k { flex: 0 0 190px; font-weight: 600; font-size: 13.5px; }
+.spec-row .v { flex: 1 1 260px; color: var(--muted); font-size: 13.5px; }
+.spec-row .v code, .files code {
+  font-family: "IBM Plex Mono", monospace; font-size: 12px;
+  background: var(--chip); border-radius: 3px; padding: 1px 5px;
+}
+
+.files { columns: 2; column-gap: 26px; font-family: "IBM Plex Mono", monospace; font-size: 12px;
+         color: var(--muted); line-height: 1.95; }
+.files span { display: block; break-inside: avoid; }
+.files b { color: var(--ink); font-weight: 500; }
+
+.diagram {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 5px;
+  padding: 26px 22px; display: flex; align-items: center; justify-content: center;
+}
+.diagram svg { max-width: 100%; height: auto; }
+
+@media (max-width: 760px) {
+  .g2, .g3, .swatches, .donts { grid-template-columns: 1fr; }
+  .files { columns: 1; }
+  .spec-row .k { flex: 1 1 100%; }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <span class="tag">Concept 02 &middot; Crest &middot; Approved</span>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 294 52.5" width="330" role="img" aria-label="ShopWave">
+  <title>ShopWave</title>
+  <g transform="translate(-6,-12)">
+    <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="#FF6B35" stroke-width="6" stroke-linecap="round" transform="translate(3,14)"/>
+    <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(73,-61.5)">
+    <g fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 16.58 81.39 A 7 7 0 1 0 10 86 A 7 7 0 1 1 3.42 95.39"/>
+      <path d="M 25 70 L 25 100 M 25 90 A 10 10 0 0 1 45 90 L 45 100"/>
+      <path d="M 53 90 A 10 10 0 1 0 73 90 A 10 10 0 1 0 53 90"/>
+      <path d="M 81 80 L 81 114 M 81 90 A 10 10 0 1 1 101 90 A 10 10 0 1 1 81 90"/>
+      <path d="M 109 72 L 116 100 L 123 80 L 130 100 L 137 72"/>
+      <path d="M 143 90 A 10 10 0 1 0 163 90 A 10 10 0 1 0 143 90 M 163 80 L 163 100"/>
+      <path d="M 171 80 L 181 100 L 191 80"/>
+      <path d="M 199 90 L 219 90 A 10 10 0 1 0 215.43 97.66"/>
+    </g>
+  </g>
+</svg>
+    <p>One continuous swell draws the W of Wave, with a second swell trailing behind it for depth.
+    Everything below is generated from that single path, so the lockups, the icons and the social
+    image can never drift apart.</p>
+  </header>
+
+  <section>
+    <h2>How the mark is built</h2>
+    <p class="sub">Five anchor points, symmetric about the centre. The tangent is horizontal at both
+    valleys and at the centre peak, which is what keeps the shape reading as a wave rather than a
+    drawn letter W. The trailing swell is the same path, offset down and to the right.</p>
+    <div class="diagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="330" role="img" aria-label="Crest construction">
+  <title>Crest construction</title>
+  <g stroke="var(--rule)" stroke-width="0.4" fill="none">
+    <path d="M 0 6 L 0 62"/>
+    <path d="M 8 6 L 8 62"/>
+    <path d="M 16 6 L 16 62"/>
+    <path d="M 24 6 L 24 62"/>
+    <path d="M 32 6 L 32 62"/>
+    <path d="M 40 6 L 40 62"/>
+    <path d="M 48 6 L 48 62"/>
+    <path d="M 56 6 L 56 62"/>
+    <path d="M 64 6 L 64 62"/>
+    <path d="M 2 8 L 62 8"/>
+    <path d="M 2 16 L 62 16"/>
+    <path d="M 2 24 L 62 24"/>
+    <path d="M 2 32 L 62 32"/>
+    <path d="M 2 40 L 62 40"/>
+    <path d="M 2 48 L 62 48"/>
+    <path d="M 2 56 L 62 56"/>
+  </g>
+  <g stroke="var(--guide)" stroke-width="0.7" stroke-dasharray="2 2" fill="none">
+    <path d="M 12 42 L 30 42"/>
+    <path d="M 23 25 L 41 25"/>
+    <path d="M 34 42 L 52 42"/>
+  </g>
+  <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="var(--mark)" stroke-width="8" stroke-linecap="round" opacity="0.18"/>
+  <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="var(--mark)" stroke-width="1"/>
+  <g fill="var(--dot)">
+    <circle cx="10" cy="16" r="1.9"/>
+    <circle cx="21" cy="42" r="1.9"/>
+    <circle cx="32" cy="25" r="1.9"/>
+    <circle cx="43" cy="42" r="1.9"/>
+    <circle cx="54" cy="16" r="1.9"/>
+  </g>
+</svg>
+</div>
+  </section>
+
+  <section>
+    <h2>Lockups</h2>
+    <p class="sub">The horizontal lockup is the default. Reach for the stacked one only where the
+    horizontal will not fit above its minimum size, and the symbol alone only where the name is
+    already on screen.</p>
+    <div class="grid g2">
+      <div class="card"><div class="stage on-paper"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 294 52.5" width="250" role="img" aria-label="ShopWave">
+  <title>ShopWave</title>
+  <g transform="translate(-6,-12)">
+    <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="#FF6B35" stroke-width="6" stroke-linecap="round" transform="translate(3,14)"/>
+    <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="#14151A" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(73,-61.5)">
+    <g fill="none" stroke="#14151A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 16.58 81.39 A 7 7 0 1 0 10 86 A 7 7 0 1 1 3.42 95.39"/>
+      <path d="M 25 70 L 25 100 M 25 90 A 10 10 0 0 1 45 90 L 45 100"/>
+      <path d="M 53 90 A 10 10 0 1 0 73 90 A 10 10 0 1 0 53 90"/>
+      <path d="M 81 80 L 81 114 M 81 90 A 10 10 0 1 1 101 90 A 10 10 0 1 1 81 90"/>
+      <path d="M 109 72 L 116 100 L 123 80 L 130 100 L 137 72"/>
+      <path d="M 143 90 A 10 10 0 1 0 163 90 A 10 10 0 1 0 143 90 M 163 80 L 163 100"/>
+      <path d="M 171 80 L 181 100 L 191 80"/>
+      <path d="M 199 90 L 219 90 A 10 10 0 1 0 215.43 97.66"/>
+    </g>
+  </g>
+</svg></div><div class="cap"><span class="file">logo.svg</span><span class="use">Default. Light grounds.</span></div></div>
+      <div class="card"><div class="stage on-ink"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 294 52.5" width="250" role="img" aria-label="ShopWave">
+  <title>ShopWave</title>
+  <g transform="translate(-6,-12)">
+    <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="#FF6B35" stroke-width="6" stroke-linecap="round" transform="translate(3,14)"/>
+    <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(73,-61.5)">
+    <g fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 16.58 81.39 A 7 7 0 1 0 10 86 A 7 7 0 1 1 3.42 95.39"/>
+      <path d="M 25 70 L 25 100 M 25 90 A 10 10 0 0 1 45 90 L 45 100"/>
+      <path d="M 53 90 A 10 10 0 1 0 73 90 A 10 10 0 1 0 53 90"/>
+      <path d="M 81 80 L 81 114 M 81 90 A 10 10 0 1 1 101 90 A 10 10 0 1 1 81 90"/>
+      <path d="M 109 72 L 116 100 L 123 80 L 130 100 L 137 72"/>
+      <path d="M 143 90 A 10 10 0 1 0 163 90 A 10 10 0 1 0 143 90 M 163 80 L 163 100"/>
+      <path d="M 171 80 L 181 100 L 191 80"/>
+      <path d="M 199 90 L 219 90 A 10 10 0 1 0 215.43 97.66"/>
+    </g>
+  </g>
+</svg></div><div class="cap"><span class="file">logo-reverse.svg</span><span class="use">Dark grounds and photography.</span></div></div>
+      <div class="card"><div class="stage on-paper"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 141.2" width="150" role="img" aria-label="ShopWave">
+  <title>ShopWave</title>
+  <g transform="translate(57.2,-19.2) scale(1.6)">
+    <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="#FF6B35" stroke-width="6" stroke-linecap="round" transform="translate(3,14)"/>
+    <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="#14151A" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(-1,27.2)">
+    <g fill="none" stroke="#14151A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 16.58 81.39 A 7 7 0 1 0 10 86 A 7 7 0 1 1 3.42 95.39"/>
+      <path d="M 25 70 L 25 100 M 25 90 A 10 10 0 0 1 45 90 L 45 100"/>
+      <path d="M 53 90 A 10 10 0 1 0 73 90 A 10 10 0 1 0 53 90"/>
+      <path d="M 81 80 L 81 114 M 81 90 A 10 10 0 1 1 101 90 A 10 10 0 1 1 81 90"/>
+      <path d="M 109 72 L 116 100 L 123 80 L 130 100 L 137 72"/>
+      <path d="M 143 90 A 10 10 0 1 0 163 90 A 10 10 0 1 0 143 90 M 163 80 L 163 100"/>
+      <path d="M 171 80 L 181 100 L 191 80"/>
+      <path d="M 199 90 L 219 90 A 10 10 0 1 0 215.43 97.66"/>
+    </g>
+  </g>
+</svg></div><div class="cap"><span class="file">logo-stacked.svg</span><span class="use">Narrow spaces, square crops.</span></div></div>
+      <div class="card"><div class="stage on-ink"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 141.2" width="150" role="img" aria-label="ShopWave">
+  <title>ShopWave</title>
+  <g transform="translate(57.2,-19.2) scale(1.6)">
+    <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="#FF6B35" stroke-width="6" stroke-linecap="round" transform="translate(3,14)"/>
+    <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(-1,27.2)">
+    <g fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 16.58 81.39 A 7 7 0 1 0 10 86 A 7 7 0 1 1 3.42 95.39"/>
+      <path d="M 25 70 L 25 100 M 25 90 A 10 10 0 0 1 45 90 L 45 100"/>
+      <path d="M 53 90 A 10 10 0 1 0 73 90 A 10 10 0 1 0 53 90"/>
+      <path d="M 81 80 L 81 114 M 81 90 A 10 10 0 1 1 101 90 A 10 10 0 1 1 81 90"/>
+      <path d="M 109 72 L 116 100 L 123 80 L 130 100 L 137 72"/>
+      <path d="M 143 90 A 10 10 0 1 0 163 90 A 10 10 0 1 0 143 90 M 163 80 L 163 100"/>
+      <path d="M 171 80 L 181 100 L 191 80"/>
+      <path d="M 199 90 L 219 90 A 10 10 0 1 0 215.43 97.66"/>
+    </g>
+  </g>
+</svg></div><div class="cap"><span class="file">logo-stacked-reverse.svg</span><span class="use">Narrow spaces on dark.</span></div></div>
+      <div class="card"><div class="stage on-paper"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 47" width="96" role="img" aria-label="ShopWave">
+  <title>ShopWave</title>
+  <g transform="translate(-6,-12)">
+    <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="#FF6B35" stroke-width="6" stroke-linecap="round" transform="translate(3,14)"/>
+    <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="#14151A" stroke-width="8" stroke-linecap="round"/>
+  </g>
+</svg></div><div class="cap"><span class="file">mark.svg</span><span class="use">Avatars, app chrome, the packing slip.</span></div></div>
+      <div class="card"><div class="stage on-paper"><span style="color:#14151A"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 294 52.5" width="250" role="img" aria-label="ShopWave">
+  <title>ShopWave</title>
+  <g transform="translate(-6,-12)">
+    <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" transform="translate(3,14)" opacity="0.3"/>
+    <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(73,-61.5)">
+    <g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 16.58 81.39 A 7 7 0 1 0 10 86 A 7 7 0 1 1 3.42 95.39"/>
+      <path d="M 25 70 L 25 100 M 25 90 A 10 10 0 0 1 45 90 L 45 100"/>
+      <path d="M 53 90 A 10 10 0 1 0 73 90 A 10 10 0 1 0 53 90"/>
+      <path d="M 81 80 L 81 114 M 81 90 A 10 10 0 1 1 101 90 A 10 10 0 1 1 81 90"/>
+      <path d="M 109 72 L 116 100 L 123 80 L 130 100 L 137 72"/>
+      <path d="M 143 90 A 10 10 0 1 0 163 90 A 10 10 0 1 0 143 90 M 163 80 L 163 100"/>
+      <path d="M 171 80 L 181 100 L 191 80"/>
+      <path d="M 199 90 L 219 90 A 10 10 0 1 0 215.43 97.66"/>
+    </g>
+  </g>
+</svg></span></div><div class="cap"><span class="file">logo-mono.svg &middot; mark-mono.svg</span><span class="use">One-colour print, embossing, invoices.</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Clear space and minimum size</h2>
+    <p class="sub">The clear-space unit is <strong>x</strong>, the height of the lowercase o in the
+    wordmark. Keep x clear on all four sides, and x between the symbol and the wordmark. Nothing
+    else sits inside that box.</p>
+    <div class="diagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 334 92.5" width="560" role="img" aria-label="Clear space">
+  <title>Clear space</title>
+  <rect x="0.5" y="0.5" width="333" height="91.5" fill="none" stroke="var(--guide)" stroke-width="1" stroke-dasharray="4 3"/>
+  <g transform="translate(20,20)">
+    <g transform="translate(-6,-12)">
+      <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="#FF6B35" stroke-width="6" stroke-linecap="round" transform="translate(3,14)"/>
+      <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="#14151A" stroke-width="8" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(73,-61.5)">
+      <g fill="none" stroke="#14151A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 16.58 81.39 A 7 7 0 1 0 10 86 A 7 7 0 1 1 3.42 95.39"/>
+        <path d="M 25 70 L 25 100 M 25 90 A 10 10 0 0 1 45 90 L 45 100"/>
+        <path d="M 53 90 A 10 10 0 1 0 73 90 A 10 10 0 1 0 53 90"/>
+        <path d="M 81 80 L 81 114 M 81 90 A 10 10 0 1 1 101 90 A 10 10 0 1 1 81 90"/>
+        <path d="M 109 72 L 116 100 L 123 80 L 130 100 L 137 72"/>
+        <path d="M 143 90 A 10 10 0 1 0 163 90 A 10 10 0 1 0 143 90 M 163 80 L 163 100"/>
+        <path d="M 171 80 L 181 100 L 191 80"/>
+        <path d="M 199 90 L 219 90 A 10 10 0 1 0 215.43 97.66"/>
+      </g>
+    </g>
+  </g>
+  <g fill="none" stroke="var(--guide)" stroke-width="1">
+    <path d="M 20 0 L 20 92.5"/>
+    <path d="M 0 20 L 334 20"/>
+  </g>
+  <g font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--guide-ink)">
+    <text x="10" y="14" text-anchor="middle">x</text>
+    <text x="8" y="36">x</text>
+  </g>
+</svg>
+</div>
+    <div class="specs" style="margin-top:18px">
+      <div class="spec-row"><span class="k">Horizontal lockup</span><span class="v">140&nbsp;px wide on screen, 32&nbsp;mm in print. Below that the wordmark's arcs start to close up.</span></div>
+      <div class="spec-row"><span class="k">Stacked lockup</span><span class="v">96&nbsp;px wide, 24&nbsp;mm in print.</span></div>
+      <div class="spec-row"><span class="k">Symbol alone</span><span class="v">16&nbsp;px. At 24&nbsp;px and below use <code>favicon.svg</code>, which carries the optical corrections.</span></div>
+      <div class="spec-row"><span class="k">Optical corrections</span><span class="v">The favicon thickens both swells and shortens the trailing offset, so the two stay separate at 16&nbsp;px instead of blending into one blob.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Colour</h2>
+    <p class="sub">Two brand colours and nothing else. The neutrals are warm rather than the
+    blue-grey most UI kits ship with, so they sit with the orange instead of fighting it. All of it
+    is in <code>tokens.css</code>, ready to drop into the Tailwind theme.</p>
+    <div class="swatches"><div class="sw"><div class="fill" style="background:#14151A"></div><div class="meta"><span class="name">Graphite</span><span class="hex">#14151A</span><span class="use">Ink. Type, the leading swell, app-icon grounds.</span></div></div><div class="sw"><div class="fill" style="background:#FF6B35"></div><div class="meta"><span class="name">Signal orange</span><span class="hex">#FF6B35</span><span class="use">The trailing swell, and one action per screen.</span></div></div><div class="sw"><div class="fill" style="background:#FFFFFF"></div><div class="meta"><span class="name">Paper</span><span class="hex">#FFFFFF</span><span class="use">Reversed lockups and product surfaces.</span></div></div></div>
+    <div class="ramp"><div style="background:#FAF9F8"><span>50</span></div><div style="background:#F2F1EF"><span>100</span></div><div style="background:#E4E2DE"><span>200</span></div><div style="background:#C9C6C0"><span>300</span></div><div style="background:#9B9791"><span>400</span></div><div style="background:#6E6A64"><span>500</span></div><div style="background:#4C4945"><span>600</span></div><div style="background:#2E2C29"><span>700</span></div></div>
+  </section>
+
+  <section>
+    <h2>Icons and social</h2>
+    <p class="sub">Shown at the size they ship at. The SVG favicon flips to paper when the browser
+    chrome is dark, so the mark never disappears into a dark tab strip.</p>
+    <div class="icons"><div class="icon"><div class="plate"><img src="favicon-16.png" width="16" alt="favicon-16.png"></div><span class="lbl">favicon-16.png<br>16 px</span></div><div class="icon"><div class="plate"><img src="favicon-32.png" width="32" alt="favicon-32.png"></div><span class="lbl">favicon-32.png<br>32 px</span></div><div class="icon"><div class="plate"><img src="apple-touch-icon.png" width="180" alt="apple-touch-icon.png"></div><span class="lbl">apple-touch-icon.png<br>180 px</span></div><div class="icon"><div class="plate"><img src="icon-192.png" width="192" alt="icon-192.png"></div><span class="lbl">icon-192.png<br>192 px</span></div><div class="icon"><div class="plate"><img src="icon-maskable-512.png" width="128" alt="icon-maskable-512.png"></div><span class="lbl">icon-maskable-512.png<br>maskable, shown at 128</span></div></div>
+    <div class="card wide" style="margin-top:22px">
+      <div class="stage on-ink" style="padding:0"><img src="og-image.png" alt="ShopWave social card" width="1200" height="630"></div>
+      <div class="cap"><span class="file">og-image.png &middot; 1200 &times; 630</span><span class="use">Open Graph and Twitter card for every shared link.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What not to do</h2>
+    <p class="sub">Each of these is a real render of the logo, not a description of one.</p>
+    <div class="donts"><div class="dont d-stretch"><div class="stage"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 294 52.5" width="170" role="img" aria-label="ShopWave">
+  <title>ShopWave</title>
+  <g transform="translate(-6,-12)">
+    <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="#FF6B35" stroke-width="6" stroke-linecap="round" transform="translate(3,14)"/>
+    <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="#14151A" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(73,-61.5)">
+    <g fill="none" stroke="#14151A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 16.58 81.39 A 7 7 0 1 0 10 86 A 7 7 0 1 1 3.42 95.39"/>
+      <path d="M 25 70 L 25 100 M 25 90 A 10 10 0 0 1 45 90 L 45 100"/>
+      <path d="M 53 90 A 10 10 0 1 0 73 90 A 10 10 0 1 0 53 90"/>
+      <path d="M 81 80 L 81 114 M 81 90 A 10 10 0 1 1 101 90 A 10 10 0 1 1 81 90"/>
+      <path d="M 109 72 L 116 100 L 123 80 L 130 100 L 137 72"/>
+      <path d="M 143 90 A 10 10 0 1 0 163 90 A 10 10 0 1 0 143 90 M 163 80 L 163 100"/>
+      <path d="M 171 80 L 181 100 L 191 80"/>
+      <path d="M 199 90 L 219 90 A 10 10 0 1 0 215.43 97.66"/>
+    </g>
+  </g>
+</svg></div><div class="why"><b>Don't</b><span>Stretch. Scale both axes together, always.</span></div></div><div class="dont d-rotate"><div class="stage"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 294 52.5" width="170" role="img" aria-label="ShopWave">
+  <title>ShopWave</title>
+  <g transform="translate(-6,-12)">
+    <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="#FF6B35" stroke-width="6" stroke-linecap="round" transform="translate(3,14)"/>
+    <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="#14151A" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(73,-61.5)">
+    <g fill="none" stroke="#14151A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 16.58 81.39 A 7 7 0 1 0 10 86 A 7 7 0 1 1 3.42 95.39"/>
+      <path d="M 25 70 L 25 100 M 25 90 A 10 10 0 0 1 45 90 L 45 100"/>
+      <path d="M 53 90 A 10 10 0 1 0 73 90 A 10 10 0 1 0 53 90"/>
+      <path d="M 81 80 L 81 114 M 81 90 A 10 10 0 1 1 101 90 A 10 10 0 1 1 81 90"/>
+      <path d="M 109 72 L 116 100 L 123 80 L 130 100 L 137 72"/>
+      <path d="M 143 90 A 10 10 0 1 0 163 90 A 10 10 0 1 0 143 90 M 163 80 L 163 100"/>
+      <path d="M 171 80 L 181 100 L 191 80"/>
+      <path d="M 199 90 L 219 90 A 10 10 0 1 0 215.43 97.66"/>
+    </g>
+  </g>
+</svg></div><div class="why"><b>Don't</b><span>Rotate. The swell has a horizon. Keep it level.</span></div></div><div class="dont d-shadow"><div class="stage"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 294 52.5" width="170" role="img" aria-label="ShopWave">
+  <title>ShopWave</title>
+  <g transform="translate(-6,-12)">
+    <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="#FF6B35" stroke-width="6" stroke-linecap="round" transform="translate(3,14)"/>
+    <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="#14151A" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(73,-61.5)">
+    <g fill="none" stroke="#14151A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 16.58 81.39 A 7 7 0 1 0 10 86 A 7 7 0 1 1 3.42 95.39"/>
+      <path d="M 25 70 L 25 100 M 25 90 A 10 10 0 0 1 45 90 L 45 100"/>
+      <path d="M 53 90 A 10 10 0 1 0 73 90 A 10 10 0 1 0 53 90"/>
+      <path d="M 81 80 L 81 114 M 81 90 A 10 10 0 1 1 101 90 A 10 10 0 1 1 81 90"/>
+      <path d="M 109 72 L 116 100 L 123 80 L 130 100 L 137 72"/>
+      <path d="M 143 90 A 10 10 0 1 0 163 90 A 10 10 0 1 0 143 90 M 163 80 L 163 100"/>
+      <path d="M 171 80 L 181 100 L 191 80"/>
+      <path d="M 199 90 L 219 90 A 10 10 0 1 0 215.43 97.66"/>
+    </g>
+  </g>
+</svg></div><div class="why"><b>Don't</b><span>Add effects. No shadows, bevels or gradients.</span></div></div><div class="dont d-recolour"><div class="stage"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 294 52.5" width="170" role="img" aria-label="ShopWave">
+  <title>ShopWave</title>
+  <g transform="translate(-6,-12)">
+    <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="#22C55E" stroke-width="6" stroke-linecap="round" transform="translate(3,14)"/>
+    <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="#2563EB" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(73,-61.5)">
+    <g fill="none" stroke="#2563EB" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 16.58 81.39 A 7 7 0 1 0 10 86 A 7 7 0 1 1 3.42 95.39"/>
+      <path d="M 25 70 L 25 100 M 25 90 A 10 10 0 0 1 45 90 L 45 100"/>
+      <path d="M 53 90 A 10 10 0 1 0 73 90 A 10 10 0 1 0 53 90"/>
+      <path d="M 81 80 L 81 114 M 81 90 A 10 10 0 1 1 101 90 A 10 10 0 1 1 81 90"/>
+      <path d="M 109 72 L 116 100 L 123 80 L 130 100 L 137 72"/>
+      <path d="M 143 90 A 10 10 0 1 0 163 90 A 10 10 0 1 0 143 90 M 163 80 L 163 100"/>
+      <path d="M 171 80 L 181 100 L 191 80"/>
+      <path d="M 199 90 L 219 90 A 10 10 0 1 0 215.43 97.66"/>
+    </g>
+  </g>
+</svg></div><div class="why"><b>Don't</b><span>Recolour. Graphite and orange, or a mono variant.</span></div></div><div class="dont d-lowcon"><div class="stage"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 294 52.5" width="170" role="img" aria-label="ShopWave">
+  <title>ShopWave</title>
+  <g transform="translate(-6,-12)">
+    <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="#FF6B35" stroke-width="6" stroke-linecap="round" transform="translate(3,14)"/>
+    <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="#FF6B35" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(73,-61.5)">
+    <g fill="none" stroke="#FF6B35" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 16.58 81.39 A 7 7 0 1 0 10 86 A 7 7 0 1 1 3.42 95.39"/>
+      <path d="M 25 70 L 25 100 M 25 90 A 10 10 0 0 1 45 90 L 45 100"/>
+      <path d="M 53 90 A 10 10 0 1 0 73 90 A 10 10 0 1 0 53 90"/>
+      <path d="M 81 80 L 81 114 M 81 90 A 10 10 0 1 1 101 90 A 10 10 0 1 1 81 90"/>
+      <path d="M 109 72 L 116 100 L 123 80 L 130 100 L 137 72"/>
+      <path d="M 143 90 A 10 10 0 1 0 163 90 A 10 10 0 1 0 143 90 M 163 80 L 163 100"/>
+      <path d="M 171 80 L 181 100 L 191 80"/>
+      <path d="M 199 90 L 219 90 A 10 10 0 1 0 215.43 97.66"/>
+    </g>
+  </g>
+</svg></div><div class="why"><b>Don't</b><span>Sink it into the ground. Use the reverse lockup instead.</span></div></div><div class="dont d-crowd"><div class="stage"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 294 52.5" width="170" role="img" aria-label="ShopWave">
+  <title>ShopWave</title>
+  <g transform="translate(-6,-12)">
+    <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="#FF6B35" stroke-width="6" stroke-linecap="round" transform="translate(3,14)"/>
+    <path d="M 10 16 C 14 34, 17 42, 21 42 C 25 42, 28 25, 32 25 C 36 25, 39 42, 43 42 C 47 42, 50 34, 54 16" fill="none" stroke="#14151A" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(73,-61.5)">
+    <g fill="none" stroke="#14151A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 16.58 81.39 A 7 7 0 1 0 10 86 A 7 7 0 1 1 3.42 95.39"/>
+      <path d="M 25 70 L 25 100 M 25 90 A 10 10 0 0 1 45 90 L 45 100"/>
+      <path d="M 53 90 A 10 10 0 1 0 73 90 A 10 10 0 1 0 53 90"/>
+      <path d="M 81 80 L 81 114 M 81 90 A 10 10 0 1 1 101 90 A 10 10 0 1 1 81 90"/>
+      <path d="M 109 72 L 116 100 L 123 80 L 130 100 L 137 72"/>
+      <path d="M 143 90 A 10 10 0 1 0 163 90 A 10 10 0 1 0 143 90 M 163 80 L 163 100"/>
+      <path d="M 171 80 L 181 100 L 191 80"/>
+      <path d="M 199 90 L 219 90 A 10 10 0 1 0 215.43 97.66"/>
+    </g>
+  </g>
+</svg></div><div class="why"><b>Don't</b><span>Crowd it. Nothing enters the clear space.</span></div></div></div>
+  </section>
+
+  <section>
+    <h2>Files</h2>
+    <p class="sub">Everything lives in <code>public/brand/</code>. The four round-one concepts stay
+    in <code>public/brand/concepts/</code> as a record of where this came from.</p>
+    <div class="files"><span><b>logo.svg</b> &nbsp;primary horizontal lockup</span><span><b>logo-reverse.svg</b> &nbsp;horizontal, for dark grounds</span><span><b>logo-mono.svg</b> &nbsp;horizontal, single colour</span><span><b>logo-stacked.svg</b> &nbsp;stacked lockup</span><span><b>logo-stacked-reverse.svg</b> &nbsp;stacked, for dark grounds</span><span><b>mark.svg</b> &nbsp;symbol only</span><span><b>mark-reverse.svg</b> &nbsp;symbol, for dark grounds</span><span><b>mark-mono.svg</b> &nbsp;symbol, one flat colour</span><span><b>favicon.svg</b> &nbsp;tab icon, scheme-aware</span><span><b>favicon-32.png</b> &nbsp;32 &times; 32</span><span><b>favicon-16.png</b> &nbsp;16 &times; 16</span><span><b>apple-touch-icon.png</b> &nbsp;180 &times; 180</span><span><b>icon-192.png</b> &nbsp;PWA, 192 &times; 192</span><span><b>icon-512.png</b> &nbsp;PWA, 512 &times; 512</span><span><b>icon-maskable-512.png</b> &nbsp;PWA maskable, 80% safe zone</span><span><b>og-image.png</b> &nbsp;1200 &times; 630</span><span><b>tokens.css</b> &nbsp;brand colour tokens</span></div>
+  </section>
+</div>

@@ -1,0 +1,21 @@
+/* ShopWave brand tokens - generated from public/brand.
+   Two brand colours, plus a warm neutral ramp chosen to sit with the orange
+   rather than the blue-grey most UI kits default to. */
+:root {
+  /* brand */
+  --sw-graphite:      #14151A;
+  --sw-orange:        #FF6B35;
+  --sw-orange-deep:   #E4511B;  /* hover, pressed */
+  --sw-orange-tint:   #FFF1EA;  /* washes, selected rows */
+  --sw-paper:         #FFFFFF;
+
+  /* warm neutrals */
+  --sw-sand-50:       #FAF9F8;
+  --sw-sand-100:      #F2F1EF;
+  --sw-sand-200:      #E4E2DE;
+  --sw-sand-300:      #C9C6C0;
+  --sw-sand-400:      #9B9791;
+  --sw-sand-500:      #6E6A64;
+  --sw-sand-600:      #4C4945;
+  --sw-sand-700:      #2E2C29;
+}

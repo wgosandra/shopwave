@@ -1,0 +1,53 @@
+name: Bug report
+description: Something in ShopWave does not behave as it should.
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you saw, and what you expected instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Catalogue
+        - Cart
+        - Checkout / payment
+        - Orders
+        - Account / auth
+        - Admin
+        - Something else
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser, device, and whether this was local or deployed.
+      placeholder: Chrome 140, macOS, local dev
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or screenshots
+      description: Redact anything sensitive before pasting.
+      render: shell

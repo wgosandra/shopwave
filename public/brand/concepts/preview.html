@@ -1,0 +1,641 @@
+<title>ShopWave Logo Concepts</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root {
+  --ground:   #EDEFF3;
+  --surface:  #FFFFFF;
+  --line:     #D6DBE3;
+  --line-soft:#E4E8EE;
+  --ink:      #161A21;
+  --muted:    #5C6572;
+  --accent:   #2E6F6A;
+  --chip:     #E3E7ED;
+  /* fixed test surfaces - these must NOT follow the page theme */
+  --swatch-light: #FFFFFF;
+  --swatch-dark:  #0F1317;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground:   #0C0F14;
+    --surface:  #151A21;
+    --line:     #262D38;
+    --line-soft:#1E242D;
+    --ink:      #E6EAF0;
+    --muted:    #929BA9;
+    --accent:   #6FC0B8;
+    --chip:     #212831;
+  }
+}
+:root[data-theme="dark"] {
+  --ground:   #0C0F14;
+  --surface:  #151A21;
+  --line:     #262D38;
+  --line-soft:#1E242D;
+  --ink:      #E6EAF0;
+  --muted:    #929BA9;
+  --accent:   #6FC0B8;
+  --chip:     #212831;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding-inline: 20px;
+  padding-block: 40px 64px;
+}
+
+.eyebrow {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 10px;
+}
+
+h1 {
+  font-family: "Familjen Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(30px, 5vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  margin: 0 0 16px;
+}
+
+.lede { max-width: 62ch; color: var(--muted); margin: 0 0 20px; }
+.lede strong { color: var(--ink); font-weight: 600; }
+
+.method {
+  border-left: 2px solid var(--accent);
+  padding: 2px 0 2px 16px;
+  max-width: 62ch;
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 44px;
+}
+
+.plates { display: flex; flex-direction: column; gap: 28px; }
+
+.plate {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* the inlined marks take their ink from the panel they sit on, which beats
+   the color attribute each file carries for standalone use */
+.plate svg { color: inherit; }
+
+.plate-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 22px 24px 18px;
+}
+
+.num {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 12px;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 2px 7px;
+  align-self: center;
+}
+
+.plate-head h2 {
+  font-family: "Familjen Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.idea { color: var(--muted); font-size: 14px; margin: 0; flex: 1 1 260px; }
+
+.panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.panel {
+  padding: 34px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  align-items: center;
+  min-width: 0;
+}
+.panel + .panel { border-left: 1px solid var(--line-soft); }
+
+.panel-light { background: var(--swatch-light); }
+.panel-dark  { background: var(--swatch-dark); }
+
+.lockup { display: flex; justify-content: center; width: 100%; }
+.lockup svg { max-width: 100%; height: auto; }
+
+.sizes {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 26px;
+  width: 100%;
+  padding-top: 20px;
+  border-top: 1px solid currentColor;
+  border-color: color-mix(in srgb, currentColor 14%, transparent);
+}
+
+.size { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.size svg { display: block; }
+.size .px {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  opacity: 0.6;
+}
+
+.panel-tag {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  align-self: flex-start;
+  margin-top: -14px;
+}
+
+.plate-foot {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 20px 24px 24px;
+}
+
+.note { flex: 1 1 340px; margin: 0; color: var(--muted); font-size: 14px; max-width: 58ch; }
+
+.spec { display: flex; flex-direction: column; gap: 10px; flex: 0 1 230px; }
+
+.swatches { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.sw {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 11px;
+  color: var(--muted);
+}
+.sw i {
+  width: 13px; height: 13px; border-radius: 2px;
+  border: 1px solid rgba(128,138,152,0.45);
+  display: block;
+}
+
+.file {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 11px;
+  color: var(--muted);
+  background: var(--chip);
+  border-radius: 3px;
+  padding: 3px 7px;
+  align-self: flex-start;
+}
+
+footer {
+  margin-top: 40px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+  max-width: 62ch;
+}
+footer code {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 12px;
+  background: var(--chip);
+  border-radius: 3px;
+  padding: 1px 5px;
+}
+
+@media (max-width: 720px) {
+  .panels { grid-template-columns: 1fr; }
+  .panel + .panel { border-left: 0; border-top: 1px solid var(--line-soft); }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+</style>
+
+<div class="wrap">
+  <p class="eyebrow">Brand exploration &middot; Round 1</p>
+  <h1>Four marks for ShopWave</h1>
+  <p class="lede">Four independent directions, each a symbol plus the ShopWave wordmark, drawn as
+  hand-written SVG with no more than three colours. Every one is shown on white and on ink, at
+  presentation size and at the sizes that actually decide a logo: <strong>32px</strong>, the browser
+  favicon, and 16px, the tab strip. <strong>Pick one and I will build it out</strong> into the full
+  asset set.</p>
+  <p class="method">All four share one wordmark, a monoline geometric alphabet built only from
+  full circles, circle arcs and straight lines on a single grid: x-height 20, cap height 28, one
+  stroke weight per concept. So the choice in front of you is really a choice of symbol, and
+  whichever one wins, the lettering is already consistent with it.</p>
+
+  <div class="plates">
+    <section class="plate">
+      <div class="plate-head">
+        <span class="num">01</span>
+        <h2>Tide</h2>
+        <p class="idea">A shopping bag with a tide rising inside it.</p>
+      </div>
+      <div class="panels">
+      <div class="panel panel-light" style="color:#10293C">
+        <span class="panel-tag">on white</span>
+        <div class="lockup"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 306 72" width="276"
+     color="#10293C" role="img" aria-label="ShopWave">
+  <title>ShopWave concept 1 - Tide</title>
+  <g transform="translate(0,4)">
+    <!-- bag handle -->
+    <path d="M 22 22 A 10 10 0 0 1 42 22" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+    <!-- tide line, shaped to sit inside the bag -->
+    <path d="M 12 42 C 18 34, 24 48, 32 41 C 39 35, 46 44, 52 39 L 52 51 A 5 5 0 0 1 47 56 L 17 56 A 5 5 0 0 1 12 51 Z" fill="#14B8A6"/>
+    <!-- bag -->
+    <rect x="10" y="22" width="44" height="36" rx="7" fill="none" stroke="currentColor" stroke-width="4"/>
+  </g>
+  <g transform="translate(83,-56)">
+    <g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 16.58 81.39 A 7 7 0 1 0 10 86 A 7 7 0 1 1 3.42 95.39"/>
+      <path d="M 25 70 L 25 100 M 25 90 A 10 10 0 0 1 45 90 L 45 100"/>
+      <path d="M 53 90 A 10 10 0 1 0 73 90 A 10 10 0 1 0 53 90"/>
+      <path d="M 81 80 L 81 114 M 81 90 A 10 10 0 1 1 101 90 A 10 10 0 1 1 81 90"/>
+      <path d="M 109 72 L 116 100 L 123 80 L 130 100 L 137 72"/>
+      <path d="M 143 90 A 10 10 0 1 0 163 90 A 10 10 0 1 0 143 90 M 163 80 L 163 100"/>
+      <path d="M 171 80 L 181 100 L 191 80"/>
+      <path d="M 199 90 L 219 90 A 10 10 0 1 0 215.43 97.66"/>
+    </g>
+  </g>
+</svg></div>
+        <div class="sizes">
+          <div class="size"><svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" color="#10293C" role="img" aria-label="ShopWave symbol">
+  <!-- bag handle -->
+  <path d="M 22 22 A 10 10 0 0 1 42 22" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+  <!-- tide line, shaped to sit inside the bag -->
+  <path d="M 12 42 C 18 34, 24 48, 32 41 C 39 35, 46 44, 52 39 L 52 51 A 5 5 0 0 1 47 56 L 17 56 A 5 5 0 0 1 12 51 Z" fill="#14B8A6"/>
+  <!-- bag -->
+  <rect x="10" y="22" width="44" height="36" rx="7" fill="none" stroke="currentColor" stroke-width="4"/>
+</svg><span class="px">32px</span></div>
+          <div class="size"><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" color="#10293C" role="img" aria-label="ShopWave symbol">
+  <!-- bag handle -->
+  <path d="M 22 22 A 10 10 0 0 1 42 22" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+  <!-- tide line, shaped to sit inside the bag -->
+  <path d="M 12 42 C 18 34, 24 48, 32 41 C 39 35, 46 44, 52 39 L 52 51 A 5 5 0 0 1 47 56 L 17 56 A 5 5 0 0 1 12 51 Z" fill="#14B8A6"/>
+  <!-- bag -->
+  <rect x="10" y="22" width="44" height="36" rx="7" fill="none" stroke="currentColor" stroke-width="4"/>
+</svg><span class="px">16px</span></div>
+        </div>
+      </div>
+      <div class="panel panel-dark" style="color:#F4F7FA">
+        <span class="panel-tag">on ink</span>
+        <div class="lockup"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 306 72" width="276"
+     color="#10293C" role="img" aria-label="ShopWave">
+  <title>ShopWave concept 1 - Tide</title>
+  <g transform="translate(0,4)">
+    <!-- bag handle -->
+    <path d="M 22 22 A 10 10 0 0 1 42 22" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+    <!-- tide line, shaped to sit inside the bag -->
+    <path d="M 12 42 C 18 34, 24 48, 32 41 C 39 35, 46 44, 52 39 L 52 51 A 5 5 0 0 1 47 56 L 17 56 A 5 5 0 0 1 12 51 Z" fill="#14B8A6"/>
+    <!-- bag -->
+    <rect x="10" y="22" width="44" height="36" rx="7" fill="none" stroke="currentColor" stroke-width="4"/>
+  </g>
+  <g transform="translate(83,-56)">
+    <g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 16.58 81.39 A 7 7 0 1 0 10 86 A 7 7 0 1 1 3.42 95.39"/>
+      <path d="M 25 70 L 25 100 M 25 90 A 10 10 0 0 1 45 90 L 45 100"/>
+      <path d="M 53 90 A 10 10 0 1 0 73 90 A 10 10 0 1 0 53 90"/>
+      <path d="M 81 80 L 81 114 M 81 90 A 10 10 0 1 1 101 90 A 10 10 0 1 1 81 90"/>
+      <path d="M 109 72 L 116 100 L 123 80 L 130 100 L 137 72"/>
+      <path d="M 143 90 A 10 10 0 1 0 163 90 A 10 10 0 1 0 143 90 M 163 80 L 163 100"/>
+      <path d="M 171 80 L 181 100 L 191 80"/>
+      <path d="M 199 90 L 219 90 A 10 10 0 1 0 215.43 97.66"/>
+    </g>
+  </g>
+</svg></div>
+        <div class="sizes">
+          <div class="size"><svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" color="#10293C" role="img" aria-label="ShopWave symbol">
+  <!-- bag handle -->
+  <path d="M 22 22 A 10 10 0 0 1 42 22" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+  <!-- tide line, shaped to sit inside the bag -->
+  <path d="M 12 42 C 18 34, 24 48, 32 41 C 39 35, 46 44, 52 39 L 52 51 A 5 5 0 0 1 47 56 L 17 56 A 5 5 0 0 1 12 51 Z" fill="#14B8A6"/>
+  <!-- bag -->
+  <rect x="10" y="22" width="44" height="36" rx="7" fill="none" stroke="currentColor" stroke-width="4"/>
+</svg><span class="px">32px</span></div>
+          <div class="size"><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" color="#10293C" role="img" aria-label="ShopWave symbol">
+  <!-- bag handle -->
+  <path d="M 22 22 A 10 10 0 0 1 42 22" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+  <!-- tide line, shaped to sit inside the bag -->
+  <path d="M 12 42 C 18 34, 24 48, 32 41 C 39 35, 46 44, 52 39 L 52 51 A 5 5 0 0 1 47 56 L 17 56 A 5 5 0 0 1 12 51 Z" fill="#14B8A6"/>
+  <!-- bag -->
+  <rect x="10" y="22" width="44" height="36" rx="7" fill="none" stroke="currentColor" stroke-width="4"/>
+</svg><span class="px">16px</span></div>
+        </div>
+      </div>
+      </div>
+      <div class="plate-foot">
+        <p class="note">The wave is what fills the bag, so the mark says shop and wave in one shape instead of gluing two icons together. It has the clearest retail read of the four, and it is also the one carrying the most detail, so watch the 16px row closely.</p>
+        <div class="spec">
+          <div class="swatches"><span class="sw"><i style="background:#10293C"></i>Harbour #10293C</span><span class="sw"><i style="background:#14B8A6"></i>Tide teal #14B8A6</span></div>
+          <span class="file">concept-1.svg &middot; Horizontal lockup</span>
+        </div>
+      </div>
+    </section>
+    <section class="plate">
+      <div class="plate-head">
+        <span class="num">02</span>
+        <h2>Crest</h2>
+        <p class="idea">One continuous swell that draws the W of Wave.</p>
+      </div>
+      <div class="panels">
+      <div class="panel panel-light" style="color:#14151A">
+        <span class="panel-tag">on white</span>
+        <div class="lockup"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 306 72" width="276"
+     color="#14151A" role="img" aria-label="ShopWave">
+  <title>ShopWave concept 2 - Crest</title>
+  <g transform="translate(0,4)">
+    <!-- trailing swell -->
+    <path d="M 6 17 C 11 43, 20 48, 25 30 C 30 15, 36 15, 41 30 C 46 48, 55 43, 59 17" fill="none" stroke="#FF6B35" stroke-width="5.5" stroke-linecap="round" transform="translate(3,15)"/>
+    <!-- leading swell, reads as the W of Wave -->
+    <path d="M 6 17 C 11 43, 20 48, 25 30 C 30 15, 36 15, 41 30 C 46 48, 55 43, 59 17" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(83,-56)">
+    <g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 16.58 81.39 A 7 7 0 1 0 10 86 A 7 7 0 1 1 3.42 95.39"/>
+      <path d="M 25 70 L 25 100 M 25 90 A 10 10 0 0 1 45 90 L 45 100"/>
+      <path d="M 53 90 A 10 10 0 1 0 73 90 A 10 10 0 1 0 53 90"/>
+      <path d="M 81 80 L 81 114 M 81 90 A 10 10 0 1 1 101 90 A 10 10 0 1 1 81 90"/>
+      <path d="M 109 72 L 116 100 L 123 80 L 130 100 L 137 72"/>
+      <path d="M 143 90 A 10 10 0 1 0 163 90 A 10 10 0 1 0 143 90 M 163 80 L 163 100"/>
+      <path d="M 171 80 L 181 100 L 191 80"/>
+      <path d="M 199 90 L 219 90 A 10 10 0 1 0 215.43 97.66"/>
+    </g>
+  </g>
+</svg></div>
+        <div class="sizes">
+          <div class="size"><svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" color="#14151A" role="img" aria-label="ShopWave symbol">
+  <!-- trailing swell -->
+  <path d="M 6 17 C 11 43, 20 48, 25 30 C 30 15, 36 15, 41 30 C 46 48, 55 43, 59 17" fill="none" stroke="#FF6B35" stroke-width="5.5" stroke-linecap="round" transform="translate(3,15)"/>
+  <!-- leading swell, reads as the W of Wave -->
+  <path d="M 6 17 C 11 43, 20 48, 25 30 C 30 15, 36 15, 41 30 C 46 48, 55 43, 59 17" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/>
+</svg><span class="px">32px</span></div>
+          <div class="size"><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" color="#14151A" role="img" aria-label="ShopWave symbol">
+  <!-- trailing swell -->
+  <path d="M 6 17 C 11 43, 20 48, 25 30 C 30 15, 36 15, 41 30 C 46 48, 55 43, 59 17" fill="none" stroke="#FF6B35" stroke-width="5.5" stroke-linecap="round" transform="translate(3,15)"/>
+  <!-- leading swell, reads as the W of Wave -->
+  <path d="M 6 17 C 11 43, 20 48, 25 30 C 30 15, 36 15, 41 30 C 46 48, 55 43, 59 17" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/>
+</svg><span class="px">16px</span></div>
+        </div>
+      </div>
+      <div class="panel panel-dark" style="color:#F4F7FA">
+        <span class="panel-tag">on ink</span>
+        <div class="lockup"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 306 72" width="276"
+     color="#14151A" role="img" aria-label="ShopWave">
+  <title>ShopWave concept 2 - Crest</title>
+  <g transform="translate(0,4)">
+    <!-- trailing swell -->
+    <path d="M 6 17 C 11 43, 20 48, 25 30 C 30 15, 36 15, 41 30 C 46 48, 55 43, 59 17" fill="none" stroke="#FF6B35" stroke-width="5.5" stroke-linecap="round" transform="translate(3,15)"/>
+    <!-- leading swell, reads as the W of Wave -->
+    <path d="M 6 17 C 11 43, 20 48, 25 30 C 30 15, 36 15, 41 30 C 46 48, 55 43, 59 17" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(83,-56)">
+    <g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 16.58 81.39 A 7 7 0 1 0 10 86 A 7 7 0 1 1 3.42 95.39"/>
+      <path d="M 25 70 L 25 100 M 25 90 A 10 10 0 0 1 45 90 L 45 100"/>
+      <path d="M 53 90 A 10 10 0 1 0 73 90 A 10 10 0 1 0 53 90"/>
+      <path d="M 81 80 L 81 114 M 81 90 A 10 10 0 1 1 101 90 A 10 10 0 1 1 81 90"/>
+      <path d="M 109 72 L 116 100 L 123 80 L 130 100 L 137 72"/>
+      <path d="M 143 90 A 10 10 0 1 0 163 90 A 10 10 0 1 0 143 90 M 163 80 L 163 100"/>
+      <path d="M 171 80 L 181 100 L 191 80"/>
+      <path d="M 199 90 L 219 90 A 10 10 0 1 0 215.43 97.66"/>
+    </g>
+  </g>
+</svg></div>
+        <div class="sizes">
+          <div class="size"><svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" color="#14151A" role="img" aria-label="ShopWave symbol">
+  <!-- trailing swell -->
+  <path d="M 6 17 C 11 43, 20 48, 25 30 C 30 15, 36 15, 41 30 C 46 48, 55 43, 59 17" fill="none" stroke="#FF6B35" stroke-width="5.5" stroke-linecap="round" transform="translate(3,15)"/>
+  <!-- leading swell, reads as the W of Wave -->
+  <path d="M 6 17 C 11 43, 20 48, 25 30 C 30 15, 36 15, 41 30 C 46 48, 55 43, 59 17" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/>
+</svg><span class="px">32px</span></div>
+          <div class="size"><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" color="#14151A" role="img" aria-label="ShopWave symbol">
+  <!-- trailing swell -->
+  <path d="M 6 17 C 11 43, 20 48, 25 30 C 30 15, 36 15, 41 30 C 46 48, 55 43, 59 17" fill="none" stroke="#FF6B35" stroke-width="5.5" stroke-linecap="round" transform="translate(3,15)"/>
+  <!-- leading swell, reads as the W of Wave -->
+  <path d="M 6 17 C 11 43, 20 48, 25 30 C 30 15, 36 15, 41 30 C 46 48, 55 43, 59 17" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/>
+</svg><span class="px">16px</span></div>
+        </div>
+      </div>
+      </div>
+      <div class="plate-foot">
+        <p class="note">A second swell trails behind the first for depth and motion. This is the most monogram-like option, so it can run on its own as an avatar or a social icon long before anyone reads the wordmark.</p>
+        <div class="spec">
+          <div class="swatches"><span class="sw"><i style="background:#14151A"></i>Graphite #14151A</span><span class="sw"><i style="background:#FF6B35"></i>Signal orange #FF6B35</span></div>
+          <span class="file">concept-2.svg &middot; Horizontal lockup</span>
+        </div>
+      </div>
+    </section>
+    <section class="plate">
+      <div class="plate-head">
+        <span class="num">03</span>
+        <h2>Current</h2>
+        <p class="idea">Two equal circles, stacked and opened into an S.</p>
+      </div>
+      <div class="panels">
+      <div class="panel panel-light" style="color:#4338CA">
+        <span class="panel-tag">on white</span>
+        <div class="lockup"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 224 146" width="210"
+     color="#4338CA" role="img" aria-label="ShopWave">
+  <title>ShopWave concept 3 - Current</title>
+  <g transform="translate(67,-4) scale(1.4)">
+    <rect x="2" y="2" width="60" height="60" rx="16" fill="#4338CA"/>
+    <path d="M 40.46 26.08 A 9 9 0 1 0 32 32 A 9 9 0 1 1 23.54 44.08" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(0,28)">
+    <g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 16.58 81.39 A 7 7 0 1 0 10 86 A 7 7 0 1 1 3.42 95.39"/>
+      <path d="M 25 70 L 25 100 M 25 90 A 10 10 0 0 1 45 90 L 45 100"/>
+      <path d="M 53 90 A 10 10 0 1 0 73 90 A 10 10 0 1 0 53 90"/>
+      <path d="M 81 80 L 81 114 M 81 90 A 10 10 0 1 1 101 90 A 10 10 0 1 1 81 90"/>
+      <path d="M 109 72 L 116 100 L 123 80 L 130 100 L 137 72"/>
+      <path d="M 143 90 A 10 10 0 1 0 163 90 A 10 10 0 1 0 143 90 M 163 80 L 163 100"/>
+      <path d="M 171 80 L 181 100 L 191 80"/>
+      <path d="M 199 90 L 219 90 A 10 10 0 1 0 215.43 97.66"/>
+    </g>
+  </g>
+</svg></div>
+        <div class="sizes">
+          <div class="size"><svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" color="#4338CA" role="img" aria-label="ShopWave symbol">
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="#4338CA"/>
+  <path d="M 40.46 26.08 A 9 9 0 1 0 32 32 A 9 9 0 1 1 23.54 44.08" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round"/>
+</svg><span class="px">32px</span></div>
+          <div class="size"><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" color="#4338CA" role="img" aria-label="ShopWave symbol">
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="#4338CA"/>
+  <path d="M 40.46 26.08 A 9 9 0 1 0 32 32 A 9 9 0 1 1 23.54 44.08" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round"/>
+</svg><span class="px">16px</span></div>
+        </div>
+      </div>
+      <div class="panel panel-dark" style="color:#F4F7FA">
+        <span class="panel-tag">on ink</span>
+        <div class="lockup"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 224 146" width="210"
+     color="#4338CA" role="img" aria-label="ShopWave">
+  <title>ShopWave concept 3 - Current</title>
+  <g transform="translate(67,-4) scale(1.4)">
+    <rect x="2" y="2" width="60" height="60" rx="16" fill="#4338CA"/>
+    <path d="M 40.46 26.08 A 9 9 0 1 0 32 32 A 9 9 0 1 1 23.54 44.08" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(0,28)">
+    <g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 16.58 81.39 A 7 7 0 1 0 10 86 A 7 7 0 1 1 3.42 95.39"/>
+      <path d="M 25 70 L 25 100 M 25 90 A 10 10 0 0 1 45 90 L 45 100"/>
+      <path d="M 53 90 A 10 10 0 1 0 73 90 A 10 10 0 1 0 53 90"/>
+      <path d="M 81 80 L 81 114 M 81 90 A 10 10 0 1 1 101 90 A 10 10 0 1 1 81 90"/>
+      <path d="M 109 72 L 116 100 L 123 80 L 130 100 L 137 72"/>
+      <path d="M 143 90 A 10 10 0 1 0 163 90 A 10 10 0 1 0 143 90 M 163 80 L 163 100"/>
+      <path d="M 171 80 L 181 100 L 191 80"/>
+      <path d="M 199 90 L 219 90 A 10 10 0 1 0 215.43 97.66"/>
+    </g>
+  </g>
+</svg></div>
+        <div class="sizes">
+          <div class="size"><svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" color="#4338CA" role="img" aria-label="ShopWave symbol">
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="#4338CA"/>
+  <path d="M 40.46 26.08 A 9 9 0 1 0 32 32 A 9 9 0 1 1 23.54 44.08" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round"/>
+</svg><span class="px">32px</span></div>
+          <div class="size"><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" color="#4338CA" role="img" aria-label="ShopWave symbol">
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="#4338CA"/>
+  <path d="M 40.46 26.08 A 9 9 0 1 0 32 32 A 9 9 0 1 1 23.54 44.08" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round"/>
+</svg><span class="px">16px</span></div>
+        </div>
+      </div>
+      </div>
+      <div class="plate-foot">
+        <p class="note">It reads as the S of Shop and as a current running between two points. Drawn app-icon first: the rounded square is part of the mark, so the favicon, the PWA icon and the logo on the Midtrans checkout are all the same asset.</p>
+        <div class="spec">
+          <div class="swatches"><span class="sw"><i style="background:#4338CA"></i>Indigo #4338CA</span><span class="sw"><i style="background:#FFFFFF"></i>Paper #FFFFFF</span></div>
+          <span class="file">concept-3.svg &middot; Stacked lockup</span>
+        </div>
+      </div>
+    </section>
+    <section class="plate">
+      <div class="plate-head">
+        <span class="num">04</span>
+        <h2>Swell</h2>
+        <p class="idea">Three waves rolling in, each one further along and lighter.</p>
+      </div>
+      <div class="panels">
+      <div class="panel panel-light" style="color:#101828">
+        <span class="panel-tag">on white</span>
+        <div class="lockup"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 306 72" width="276"
+     color="#101828" role="img" aria-label="ShopWave">
+  <title>ShopWave concept 4 - Swell</title>
+  <g transform="translate(0,4)">
+    <path d="M 10 44 C 19 31, 31 49, 40 36" fill="none" stroke="#22D3EE" stroke-width="6" stroke-linecap="round" transform="translate(12,-20)"/>
+    <path d="M 10 44 C 19 31, 31 49, 40 36" fill="none" stroke="#7C3AED" stroke-width="6" stroke-linecap="round" transform="translate(6,-10)"/>
+    <path d="M 10 44 C 19 31, 31 49, 40 36" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(83,-56)">
+    <g fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 16.58 81.39 A 7 7 0 1 0 10 86 A 7 7 0 1 1 3.42 95.39"/>
+      <path d="M 25 70 L 25 100 M 25 90 A 10 10 0 0 1 45 90 L 45 100"/>
+      <path d="M 53 90 A 10 10 0 1 0 73 90 A 10 10 0 1 0 53 90"/>
+      <path d="M 81 80 L 81 114 M 81 90 A 10 10 0 1 1 101 90 A 10 10 0 1 1 81 90"/>
+      <path d="M 109 72 L 116 100 L 123 80 L 130 100 L 137 72"/>
+      <path d="M 143 90 A 10 10 0 1 0 163 90 A 10 10 0 1 0 143 90 M 163 80 L 163 100"/>
+      <path d="M 171 80 L 181 100 L 191 80"/>
+      <path d="M 199 90 L 219 90 A 10 10 0 1 0 215.43 97.66"/>
+    </g>
+  </g>
+</svg></div>
+        <div class="sizes">
+          <div class="size"><svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" color="#101828" role="img" aria-label="ShopWave symbol">
+  <path d="M 10 44 C 19 31, 31 49, 40 36" fill="none" stroke="#22D3EE" stroke-width="6" stroke-linecap="round" transform="translate(12,-20)"/>
+  <path d="M 10 44 C 19 31, 31 49, 40 36" fill="none" stroke="#7C3AED" stroke-width="6" stroke-linecap="round" transform="translate(6,-10)"/>
+  <path d="M 10 44 C 19 31, 31 49, 40 36" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+</svg><span class="px">32px</span></div>
+          <div class="size"><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" color="#101828" role="img" aria-label="ShopWave symbol">
+  <path d="M 10 44 C 19 31, 31 49, 40 36" fill="none" stroke="#22D3EE" stroke-width="6" stroke-linecap="round" transform="translate(12,-20)"/>
+  <path d="M 10 44 C 19 31, 31 49, 40 36" fill="none" stroke="#7C3AED" stroke-width="6" stroke-linecap="round" transform="translate(6,-10)"/>
+  <path d="M 10 44 C 19 31, 31 49, 40 36" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+</svg><span class="px">16px</span></div>
+        </div>
+      </div>
+      <div class="panel panel-dark" style="color:#F4F7FA">
+        <span class="panel-tag">on ink</span>
+        <div class="lockup"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 306 72" width="276"
+     color="#101828" role="img" aria-label="ShopWave">
+  <title>ShopWave concept 4 - Swell</title>
+  <g transform="translate(0,4)">
+    <path d="M 10 44 C 19 31, 31 49, 40 36" fill="none" stroke="#22D3EE" stroke-width="6" stroke-linecap="round" transform="translate(12,-20)"/>
+    <path d="M 10 44 C 19 31, 31 49, 40 36" fill="none" stroke="#7C3AED" stroke-width="6" stroke-linecap="round" transform="translate(6,-10)"/>
+    <path d="M 10 44 C 19 31, 31 49, 40 36" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(83,-56)">
+    <g fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 16.58 81.39 A 7 7 0 1 0 10 86 A 7 7 0 1 1 3.42 95.39"/>
+      <path d="M 25 70 L 25 100 M 25 90 A 10 10 0 0 1 45 90 L 45 100"/>
+      <path d="M 53 90 A 10 10 0 1 0 73 90 A 10 10 0 1 0 53 90"/>
+      <path d="M 81 80 L 81 114 M 81 90 A 10 10 0 1 1 101 90 A 10 10 0 1 1 81 90"/>
+      <path d="M 109 72 L 116 100 L 123 80 L 130 100 L 137 72"/>
+      <path d="M 143 90 A 10 10 0 1 0 163 90 A 10 10 0 1 0 143 90 M 163 80 L 163 100"/>
+      <path d="M 171 80 L 181 100 L 191 80"/>
+      <path d="M 199 90 L 219 90 A 10 10 0 1 0 215.43 97.66"/>
+    </g>
+  </g>
+</svg></div>
+        <div class="sizes">
+          <div class="size"><svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" color="#101828" role="img" aria-label="ShopWave symbol">
+  <path d="M 10 44 C 19 31, 31 49, 40 36" fill="none" stroke="#22D3EE" stroke-width="6" stroke-linecap="round" transform="translate(12,-20)"/>
+  <path d="M 10 44 C 19 31, 31 49, 40 36" fill="none" stroke="#7C3AED" stroke-width="6" stroke-linecap="round" transform="translate(6,-10)"/>
+  <path d="M 10 44 C 19 31, 31 49, 40 36" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+</svg><span class="px">32px</span></div>
+          <div class="size"><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" color="#101828" role="img" aria-label="ShopWave symbol">
+  <path d="M 10 44 C 19 31, 31 49, 40 36" fill="none" stroke="#22D3EE" stroke-width="6" stroke-linecap="round" transform="translate(12,-20)"/>
+  <path d="M 10 44 C 19 31, 31 49, 40 36" fill="none" stroke="#7C3AED" stroke-width="6" stroke-linecap="round" transform="translate(6,-10)"/>
+  <path d="M 10 44 C 19 31, 31 49, 40 36" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+</svg><span class="px">16px</span></div>
+        </div>
+      </div>
+      </div>
+      <div class="plate-foot">
+        <p class="note">The offset repeat carries momentum and hands the brand a ready-made pattern for empty states, packaging and order emails. It is the most abstract of the four, so it leans hardest on the wordmark while the name is still new.</p>
+        <div class="spec">
+          <div class="swatches"><span class="sw"><i style="background:#101828"></i>Midnight #101828</span><span class="sw"><i style="background:#7C3AED"></i>Violet #7C3AED</span><span class="sw"><i style="background:#22D3EE"></i>Cyan #22D3EE</span></div>
+          <span class="file">concept-4.svg &middot; Horizontal lockup</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    Files live in <code>public/brand/concepts/</code>. Nothing here is generated from a font or a
+    stock icon set: every path is written by hand, so each mark stays editable, scales without
+    artefacts and carries no licence encumbrance. Tell me the number you want and whether you
+    want the colours kept, and the next round is the refined lockup, the clear-space and
+    minimum-size rules, and the favicon, app icon and social assets.
+  </footer>
+</div>

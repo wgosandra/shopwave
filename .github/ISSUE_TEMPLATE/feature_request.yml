@@ -1,0 +1,40 @@
+name: Feature request
+description: Suggest something ShopWave should do.
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What is difficult or impossible today, and for whom.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+
+  - type: dropdown
+    id: phase
+    attributes:
+      label: Which phase does this belong to?
+      description: See docs/PLAN.md.
+      options:
+        - Foundation
+        - Catalogue
+        - Cart
+        - Checkout and payments
+        - Orders
+        - Admin
+        - Hardening
+        - Not sure
+    validations:
+      required: true
