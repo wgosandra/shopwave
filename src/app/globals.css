@@ -1,0 +1,169 @@
+@import "tailwindcss";
+/* Brand colour tokens ship with the brand kit; this is the single source of truth. */
+@import "../../public/brand/tokens.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ShopWave semantic tokens.
+   Every value below resolves to a brand token from public/brand/tokens.css.
+   The only additions are the dark-mode elevation steps and one destructive red,
+   neither of which the brand defines because neither is a brand colour. */
+:root {
+  --radius: 0.625rem;
+
+  /* dark-mode elevation steps, derived from graphite (UI only, not brand colours) */
+  --sw-graphite-900: #14151a;
+  --sw-graphite-800: #1c1d23;
+  --sw-graphite-700: #26272e;
+  --sw-graphite-600: #2f3038;
+
+  /* the one non-brand hue: destructive state */
+  --sw-danger: #b42318;
+  --sw-danger-tint: #fef3f2;
+
+  --background: var(--sw-paper);
+  --foreground: var(--sw-graphite);
+
+  --card: var(--sw-paper);
+  --card-foreground: var(--sw-graphite);
+  --popover: var(--sw-paper);
+  --popover-foreground: var(--sw-graphite);
+
+  /* Signal orange carries one action per screen. Its foreground is graphite,
+     not paper: orange on white text is 2.9:1 and fails WCAG AA. */
+  --primary: var(--sw-orange);
+  --primary-foreground: var(--sw-graphite);
+
+  --secondary: var(--sw-sand-100);
+  --secondary-foreground: var(--sw-graphite);
+  --muted: var(--sw-sand-100);
+  --muted-foreground: var(--sw-sand-500);
+  --accent: var(--sw-orange-tint);
+  --accent-foreground: var(--sw-graphite);
+
+  --destructive: var(--sw-danger);
+  --destructive-foreground: var(--sw-paper);
+
+  --border: var(--sw-sand-200);
+  --input: var(--sw-sand-200);
+  --ring: var(--sw-orange);
+
+  --chart-1: var(--sw-orange);
+  --chart-2: var(--sw-graphite);
+  --chart-3: var(--sw-sand-400);
+  --chart-4: var(--sw-orange-deep);
+  --chart-5: var(--sw-sand-600);
+}
+
+.dark {
+  --background: var(--sw-graphite-900);
+  --foreground: var(--sw-sand-50);
+
+  --card: var(--sw-graphite-800);
+  --card-foreground: var(--sw-sand-50);
+  --popover: var(--sw-graphite-800);
+  --popover-foreground: var(--sw-sand-50);
+
+  --primary: var(--sw-orange);
+  --primary-foreground: var(--sw-graphite);
+
+  --secondary: var(--sw-graphite-700);
+  --secondary-foreground: var(--sw-sand-50);
+  --muted: var(--sw-graphite-700);
+  --muted-foreground: var(--sw-sand-300);
+  --accent: var(--sw-graphite-700);
+  --accent-foreground: var(--sw-sand-50);
+
+  --destructive: #f97066;
+  --destructive-foreground: var(--sw-graphite);
+
+  --border: var(--sw-graphite-600);
+  --input: var(--sw-graphite-600);
+  --ring: var(--sw-orange);
+
+  --chart-1: var(--sw-orange);
+  --chart-2: var(--sw-sand-200);
+  --chart-3: var(--sw-sand-400);
+  --chart-4: var(--sw-orange-deep);
+  --chart-5: var(--sw-sand-500);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* raw brand ramp, for the rare place a semantic token does not fit */
+  --color-graphite: var(--sw-graphite);
+  --color-orange: var(--sw-orange);
+  --color-orange-deep: var(--sw-orange-deep);
+  --color-orange-tint: var(--sw-orange-tint);
+  --color-sand-50: var(--sw-sand-50);
+  --color-sand-100: var(--sw-sand-100);
+  --color-sand-200: var(--sw-sand-200);
+  --color-sand-300: var(--sw-sand-300);
+  --color-sand-400: var(--sw-sand-400);
+  --color-sand-500: var(--sw-sand-500);
+  --color-sand-600: var(--sw-sand-600);
+  --color-sand-700: var(--sw-sand-700);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Visible focus for every interactive element (WCAG 2.4.7). */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
